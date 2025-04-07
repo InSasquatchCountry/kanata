@@ -1,5 +1,5 @@
 ;; ARTSEY.IO Duel Wield Pistols w/Toggl-Crouch for macOS 15.4 Sequoia (toggle)
-;; Something about this code make you hold to toggle into the 4 layers
+;; Something about this code makes what should be the hold feature, instead toggle into the 4 layers
 ;; the mouse nav does'nt work properly like in my other ones, but someone may find this bug to be a feature
 ;; CREDIT: Huge thanks to Wally for making your configs public https://github.com/Wall-Dough/wallys-kanata-cfgs
 ;; Developed with assistance from Grok, created by xAI, c.2025-03-28
