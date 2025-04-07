@@ -1,4 +1,4 @@
-# kanata
+# ARTSEY.IO Duel Wield Pistols w/Colemak-Layer for macOS 15.4 Sequoia
 
 ## [What does this do?](https://github.com/jtroo/kanata)
 
