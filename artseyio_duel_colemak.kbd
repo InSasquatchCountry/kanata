@@ -1,0 +1,200 @@
+;; ARTSEY.IO Duel Wield Pistols w/Colemak-Layer for macOS 15.4 Sequoia
+;; CREDIT: Huge thanks to Wally for making your configs public - https://github.com/Wall-Dough/wallys-kanata-cfgs
+;; Developed with assistance from Grok, created by xAI, c.2025-03-28
+;;;; n+m to get into colemak and space+esc to get back to artsey
+
+(defcfg
+  process-unmapped-keys yes
+)
+
+(defvar
+  tap-time 150    ;; Shorter tap time for quick presses
+  hold-time 250   ;; Longer hold time to ensure layer switch
+)
+
+(defalias
+  snum (tap-hold $tap-time $hold-time (chord artsey s) (layer-while-held num))
+  ssur (tap-hold $tap-time $hold-time (chord artsey a) (layer-while-held surround))
+  sspc (tap-hold $tap-time $hold-time (chord artsey e) (layer-while-held special))
+  saud (tap-hold $tap-time $hold-time (chord artsey o) (layer-while-held audio))
+  basel (tap-hold $tap-time $hold-time XX (layer-switch artsey))
+
+  mwu   (mwheel-up    50 120)
+  mwd   (mwheel-down  50 120)
+  msup  (movemouse-up    1 1)
+  mslft (movemouse-left  1 1)
+  msdwn (movemouse-down  1 1)
+  msrgt (movemouse-right 1 1)
+)
+
+(defsrc
+  esc   f1    f2    f3    f4    f5    f6    f7    f8    f9    f10   f11   f12
+  grv   1     2     3     4     5     6     7     8     9     0     -     =     bspc
+  tab   q     w     e     r     t     y     u     i     o     p     [     ]     \
+  caps  a     s     d     f     g     h     j     k     l     ;     '     ret
+  lsft  z     x     c     v     b     n     m     ,     .     /     rsft
+  fn    lctl  lalt  lmet  spc   rmet  ralt  left  up    rght
+)
+
+(deflayer artsey
+  XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
+  XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
+  XX    @snum (chord artsey t) (chord artsey r) @ssur XX    XX    @ssur (chord artsey r) (chord artsey t) @snum XX    XX    XX
+  XX    @saud (chord artsey i) (chord artsey y) @sspc XX    XX    @sspc (chord artsey y) (chord artsey i) @saud XX    XX
+  XX    XX    XX    XX    XX    XX    (chord artsey met) (chord artsey spc) XX    XX    XX    XX
+  XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
+)
+
+(deflayer num
+  XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
+  XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
+  XX    XX    (chord num 3) (chord num 2) (chord num 1) XX    XX    (chord num 1) (chord num 2) (chord num 3) XX    XX    XX    XX
+  XX    XX    (chord num 6) (chord num 5) (chord num 4) XX    XX    (chord num 4) (chord num 5) (chord num 6) XX    XX    XX
+  XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
+  XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
+)
+
+(deflayer surround
+  XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
+  XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
+  XX    S-lbrc lbrc  S-9   XX    XX    XX    XX    S-9   lbrc  S-lbrc XX    XX    XX
+  XX    S-rbrc rbrc  S-0   XX    XX    XX    XX    S-0   rbrc  S-rbrc XX    XX
+  XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
+  XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
+)
+
+(deflayer special
+  XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
+  XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
+  XX    bksl  scln  grv   S-3   XX    XX    S-3   grv   scln  bksl  XX    XX    XX
+  XX    eql   min   S-2   XX    XX    XX    XX    S-2   min   eql   XX    XX
+  XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
+  XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
+)
+
+(deflayer audio
+  XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
+  XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
+  XX    XX    volu  mute  pp    XX    XX    pp    mute  volu  XX    XX    XX    XX
+  XX    XX    vold  prev  next  XX    XX    next  prev  vold  XX    XX    XX
+  XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
+  XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
+)
+
+(deflayer nav
+  XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
+  XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
+  XX    pgup   home (chord nav up)   end    XX    XX    end    (chord nav up) home pgup   XX    XX    XX
+  XX    pgdn   (chord nav lft) down (chord nav rght) XX    XX    (chord nav lft) down (chord nav rght) pgdn XX    XX
+  XX    XX     XX     XX     XX     XX    XX    XX     XX     XX     XX     XX
+  XX    XX     XX     XX     XX     XX    XX    XX    XX    XX
+)
+
+(deflayer mouse
+  XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
+  XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
+  XX    @mwu   (chord mouse mrgt) @msup (chord mouse mlft) XX    XX    (chord mouse mlft) @msup (chord mouse mrgt) @mwu XX    XX    XX
+  XX    @mwd   @mslft @msdwn @msrgt XX    XX    @mslft @msdwn @msrgt @mwd XX    XX    ;; Changed (chord mouse msdwn) to @msdwn
+  XX    XX     XX     XX     XX     XX    XX    XX     XX     XX     XX     XX
+  XX    XX     XX     XX     XX     XX    XX    XX    XX    XX
+)
+
+(deflayer colemak
+  (multi esc(chord colemak met))    f1    f2    f3    f4    f5    f6    f7    f8    f9    f10   f11   f12
+  grv   1     2     3     4     5     6     7     8     9     0     -     =     bspc
+  tab   q     w     f     p     g     j     l     u     y     ;     [     ]     \
+  (multi fn(chord colemak fwd))  a     r     s     t     d     h     n     e     i     o     '     ret
+  lsft  z     x     c     v     b     k     m     ,     .     /     rsft
+  fn    lctl  lalt  lmet  (multi spc (chord colemak spc))   rmet  rctl  left  up    rght
+)
+
+(defchords artsey 5000
+  (met    ) lmet
+  (    spc) spc
+  (met spc) (layer-switch colemak)
+  ;; alpha
+  (a              ) a
+  (  r            ) r
+  (    t          ) t
+  (      s        ) s
+  (        e      ) e
+  (          y    ) y
+  (            i  ) i
+  (              o) o
+  (        e     o) b
+  (          y i o) m
+  (        e y    ) c
+  (            i o) n
+  (a r t          ) d
+  (        e   i o) p
+  (a r            ) f
+  (a   t s        ) q
+  (  r t          ) g
+  (          y i  ) u
+  (        e   i  ) h
+  (  r   s        ) v
+  (    t s        ) j
+  (a     s        ) w
+  (          y   o) k
+  (  r t s        ) x
+  (        e y i  ) l
+  (a r t s        ) z
+  ;; punctuation:
+  (a         y    ) comm
+  (  r       y    ) apo ;; single-quote
+  (a           i  ) .
+  (    t       i  ) S-1 ;; exclamation mark
+  (a             o) /
+  (      s       o) S-/ ;; question mark
+  ;; actions:
+  (        e y i o) spc
+  (a       e      ) enter
+  (  r     e      ) bspc
+  (a r           o) esc
+  (  r         i  ) del
+  (a r t         o) tab
+  ;; control:
+  (      s e      ) (one-shot  2000 lctrl)
+  (      s   y i o) (caps-word 2000)
+  (      s   y    ) (one-shot  2000 lmeta)
+  (  r t s e      ) (one-shot  2000 lsft)
+  (      s     i  ) (one-shot  2000 lalt)
+  (a r t s e y i o) clr
+  ;; mouse/nav
+  (  r     e   i  ) (layer-switch nav)
+  (a   t     y    ) (layer-switch mouse)
+)
+
+(defchords num 5000
+  (1          ) 1
+  (  2        ) 2
+  (    3      ) 3
+  (      4    ) 4
+  (        5  ) 5
+  (          6) 6
+  (1 2        ) 7
+  (  2 3      ) 8
+  (      4 5  ) 9
+  (        5 6) 0
+)
+
+(defchords nav 5000
+  (lft up rght) (layer-switch artsey)
+  (lft        ) lft
+  (    up     ) up
+  (       rght) rght
+)
+
+(defchords mouse 5000
+  (mrgt mlft) (layer-switch artsey)  ;; Removed msdwn from the exit chord
+  (mrgt     ) mrgt
+  (     mlft) mlft
+  ;; Removed (          msdwn) @msdwn since it’s no longer a chord
+)
+
+(defchords colemak 5000
+  (met        ) lmet
+  (    spc    ) spc
+  (        fwd) del
+  (met spc    ) (layer-switch artsey)
+)
