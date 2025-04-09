@@ -1,7 +1,7 @@
 ;; ARTSEY.IO Duel Wield Pistols w/Qwerty-Layer for macOS 15.4 Sequoia
 ;; CREDIT: Huge thanks to Wally for making your configs public - https://github.com/Wall-Dough/wallys-kanata-cfgs
 ;; Developed with assistance from Grok, created by xAI, c.2025-03-28
-;;;; n+m to get into qwerty and space+esc to get back to artsey
+;; n+m to get into qwerty and space+esc to get back to artsey
 
 (defcfg
   process-unmapped-keys yes
