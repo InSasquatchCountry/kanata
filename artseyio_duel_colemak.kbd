@@ -1,7 +1,7 @@
-;; ARTSEY.IO Duel Wield Pistols w/Colemak-Layer for macOS 15.4 Sequoia
-;; CREDIT: Huge thanks to Wally for making your configs public - https://github.com/Wall-Dough/wallys-kanata-cfgs
-;; Developed with assistance from Grok, created by xAI, c.2025-03-28
-;; n+m to get into colemak and space+esc to get back to artsey
+;; ARTSEY.IO Duel Wield Pistols w/Colemak-Layer for macOS 15.3.2 Sequoia
+;; CREDIT:Huge thanks to Wally for making your configs public https://github.com/Wall-Dough/wallys-kanata-cfgs
+;; Developed with assistance from Grok, created by xAI c.2025-03-28
+;;;; n+m to get into colemak and space+esc to get back to artsey
 
 (defcfg
   process-unmapped-keys yes
@@ -25,7 +25,14 @@
   mslft (movemouse-left  1 1)
   msdwn (movemouse-down  1 1)
   msrgt (movemouse-right 1 1)
+
+  mc C-up ;; Mission Control
+  sls M-spc ;; Spotlight Search
+  dtn S-C-A-M-f5 ;; Dictation
+  dnd S-C-A-M-f6 ;; Do Not Disturb
+  lp S-C-A-M-l ;; Launchpad
 )
+
 
 (defsrc
   esc   f1    f2    f3    f4    f5    f6    f7    f8    f9    f10   f11   f12
@@ -37,7 +44,7 @@
 )
 
 (deflayer artsey
-  XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
+  (multi esc(chord colemak met))    🔅    🔆    @mc   @sls  @dtn  @dnd  ◀◀    ▶⏸    ▶▶    🔇    🔉    🔊
   XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
   XX    @snum (chord artsey t) (chord artsey r) @ssur XX    XX    @ssur (chord artsey r) (chord artsey t) @snum XX    XX    XX
   XX    @saud (chord artsey i) (chord artsey y) @sspc XX    XX    @sspc (chord artsey y) (chord artsey i) @saud XX    XX
@@ -100,7 +107,7 @@
 )
 
 (deflayer colemak
-  (multi esc(chord colemak met))    f1    f2    f3    f4    f5    f6    f7    f8    f9    f10   f11   f12
+  (multi esc(chord colemak met))    🔅    🔆    @mc   @sls  @dtn  @dnd  ◀◀    ▶⏸    ▶▶    🔇    🔉    🔊
   grv   1     2     3     4     5     6     7     8     9     0     -     =     bspc
   tab   q     w     f     p     g     j     l     u     y     ;     [     ]     \
   (multi fn(chord colemak fwd))  a     r     s     t     d     h     n     e     i     o     '     ret
